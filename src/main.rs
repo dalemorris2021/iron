@@ -1,10 +1,10 @@
 use clap::Parser;
-use magnetite as mag;
+use ironi;
 
 fn main() {
-    let args = mag::Args::parse();
+    let args = ironi::Args::parse();
 
-    if let Err(e) = mag::run(args) {
+    if let Err(e) = ironi::run(args) {
         eprintln!("{}", e);
     };
 }
