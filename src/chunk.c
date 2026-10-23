@@ -8,12 +8,14 @@ Chunk Chunk_new(void) {
         .length = 0,
         .capacity = 0,
         .code = NULL,
+        .constants = ValueArray_new(),
     };
 }
 
 void Chunk_delete(Chunk *chunk) {
     FREE_ARRAY(uint8_t, chunk->code, chunk->capacity);
     chunk->code = NULL;
+    ValueArray_delete(&chunk->constants);
 }
 
 void Chunk_write(Chunk *chunk, uint8_t byte) {
@@ -25,4 +27,9 @@ void Chunk_write(Chunk *chunk, uint8_t byte) {
 
     chunk->code[chunk->length] = byte;
     chunk->length++;
+}
+
+size_t Chunk_constant_add(Chunk *chunk, Value value) {
+    ValueArray_write(&chunk->constants, value);
+    return chunk->constants.length - 1;
 }

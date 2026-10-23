@@ -3,7 +3,7 @@
 
 #include "debug.h"
 
-static int simple_instruction(const char *name, uint32_t offset) {
+static int simple_instruction(const char *name, size_t offset) {
     int count = printf("%s\n", name);
     if (count < 0) {
         exit(EXIT_FAILURE);
@@ -18,12 +18,12 @@ void disassemble_chunk(Chunk *chunk, const char *name) {
         exit(EXIT_FAILURE);
     }
 
-    for (uint32_t offset = 0; offset < chunk->length;) {
+    for (size_t offset = 0; offset < chunk->length;) {
         offset = disassemble_instruction(chunk, offset);
     }
 }
 
-uint32_t disassemble_instruction(Chunk *chunk, uint32_t offset) {
+size_t disassemble_instruction(Chunk *chunk, size_t offset) {
     int count = printf("%04d ", offset);
     if (count < 0) {
         exit(EXIT_FAILURE);
