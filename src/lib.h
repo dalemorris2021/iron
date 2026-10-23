@@ -1,6 +1,6 @@
-#ifndef MAGNETITE_LIB_H
-#define MAGNETITE_LIB_H
+#ifndef IRON_LIB_H
+#define IRON_LIB_H
 
 void run(void);
 
-#endif // MAGNETITE_LIB_H
+#endif // IRON_LIB_H

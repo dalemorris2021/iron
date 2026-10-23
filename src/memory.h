@@ -1,5 +1,5 @@
-#ifndef MAGNETITE_MEMORY_H
-#define MAGNETITE_MEMORY_H
+#ifndef IRON_MEMORY_H
+#define IRON_MEMORY_H
 
 #define INIT_CAPACITY 8
 #define GROWTH_FACTOR 2
@@ -13,4 +13,4 @@
 
 void *reallocate(void *pointer, size_t old_capacity, size_t new_capacity);
 
-#endif // MAGNETITE_MEMORY_H
+#endif // IRON_MEMORY_H

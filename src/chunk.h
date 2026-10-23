@@ -1,5 +1,5 @@
-#ifndef MAGNETITE_CHUNK_H
-#define MAGNETITE_CHUNK_H
+#ifndef IRON_CHUNK_H
+#define IRON_CHUNK_H
 
 #include <stdint.h>
 #include <stdlib.h>
@@ -18,4 +18,4 @@ Chunk Chunk_new(void);
 void Chunk_delete(Chunk *chunk);
 void Chunk_write(Chunk *chunk, uint8_t byte);
 
-#endif // MAGNETITE_CHUNK_H
+#endif // IRON_CHUNK_H

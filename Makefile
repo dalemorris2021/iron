@@ -4,27 +4,27 @@ CFLAGS = -g -Wall -Wextra -Wpedantic -Werror
 RM = rm -f
 
 SRC = src
-SRCS = $(wildcard *.c)
+SRCS = $(wildcard $(SRC)/*.c)
 
 BUILD = build
 OBJ = $(BUILD)/obj
 BIN = $(BUILD)/bin
 DIRS = $(BUILD) $(OBJ) $(BIN)
 
-OBJS = $(patsubst $(SRC)/%.c, $(OBJ)/%.obj, $(SRCS))
+OBJS = $(patsubst $(SRC)/%.c, $(OBJ)/%.o, $(SRCS))
 TARGET = $(BIN)/ironi
 
 .PHONY: all clean run
 
-all: $(TARGET) dirs
+all: $(DIRS) $(TARGET)
 
-dirs: $(DIRS)
-	mkdir -p $(DIRS)
+$(DIRS):
+	mkdir -p $@
 
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $@
 
-%.o: %.c
+$(OBJ)/%.o: $(SRC)/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
